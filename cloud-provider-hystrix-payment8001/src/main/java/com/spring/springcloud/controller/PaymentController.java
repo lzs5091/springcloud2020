@@ -1,5 +1,6 @@
 package com.spring.springcloud.controller;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.spring.springcloud.service.PaymentService;
 import javax.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
@@ -32,6 +33,15 @@ public class PaymentController {
     }
 
 
+
+    //====服务熔断
+    @GetMapping("/payment/circuit/{id}")
+    public String paymentCircuitBreaker(@PathVariable("id") Integer id)
+    {
+        String result = paymentService.paymentCircuitBreaker(id);
+        log.info("****result: "+result);
+        return result;
+    }
 
 
 }
