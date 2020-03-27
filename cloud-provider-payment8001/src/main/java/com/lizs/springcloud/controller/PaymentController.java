@@ -53,6 +53,10 @@ public class PaymentController {
             return new CommonResult(500,"查询失败,端口号："+port);
         }
     }
+    @GetMapping("/payment/lb/{num}")
+    public String lb(@PathVariable String num){
+        return port;
+    }
 
     @GetMapping("/payment/discovery")
     public Object discovery(){

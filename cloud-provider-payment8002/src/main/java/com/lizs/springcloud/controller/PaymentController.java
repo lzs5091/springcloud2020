@@ -41,6 +41,11 @@ public class PaymentController {
         }
     }
 
+    @GetMapping("/payment/lb/{num}")
+    public String lb(@PathVariable String num){
+        return port;
+    }
+
 }
 
 
